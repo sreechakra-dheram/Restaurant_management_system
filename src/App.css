@@ -1,0 +1,69 @@
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+.seats-info {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #2e8b57;
+}
+
+.reservation-form {
+  margin: 20px 0;
+}
+
+.reservation-form input {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.reservation-form button {
+  padding: 8px 15px;
+  border: none;
+  background-color: #008cba;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.reservation-form button:hover {
+  background-color: #005f73;
+}
+
+.reservation-table {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.reservation-table th, .reservation-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.reservation-table th {
+  background-color: #f4f4f4;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.confirmation {
+  color: green;
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+}
