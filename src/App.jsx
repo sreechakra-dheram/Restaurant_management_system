@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SeatsInfo from "./components/SeatsInfo";
-import ReservationForm from "./components/ReservationForm";
-import ReservationTable from "./components/ReservationTable";
+import SeatsInfo from "./components/seats_data";
+import ReservationForm from "./components/booking_form";
+import ReservationTable from "./components/checkout_table";
 import "./App.css";
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
         };
 
         setReservations([...reservations, newReservation]);
-        setSeatsLeft(seatsLeft - guestCount);
+        setSeatsLeft((prevSeats) => prevSeats - guestCount);  // ✅ Reduce seats only on booking
         setConfirmationMessage("");
     };
 
@@ -43,18 +43,13 @@ const App = () => {
             )
         );
 
-        const reservation = reservations.find((res) => res.name === name);
-        if (reservation && !reservation.checkoutTime) {
-            setSeatsLeft((prevSeats) => prevSeats + reservation.guestCount);
-        }
-
         setConfirmationMessage(`Your booking is confirmed! Thank you, ${name}.`);
     };
 
     const handleDelete = (name) => {
         const reservation = reservations.find((res) => res.name === name);
-        if (reservation && !reservation.checkoutTime) {
-            setSeatsLeft(seatsLeft + reservation.guestCount);
+        if (reservation) {
+            setSeatsLeft((prevSeats) => prevSeats + reservation.guestCount); // ✅ Only restore seats if deleting before checkout
         }
         setReservations(reservations.filter((res) => res.name !== name));
     };
